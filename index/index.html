@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descarga de APK</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #qr {
+            display: none;
+        }
+        #download-button {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #download-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Descarga nuestra aplicación</h1>
+    <div id="qr">
+        <img src="qrcode_media.licdn.com.png" alt="Escanea para descargar" width="200">
+        <p>Escanea este código QR para descargar la aplicación.</p>
+    </div>
+    <a id="download-button" href="ruta-del-archivo.apk" download="mi-aplicacion.apk">Descargar APK</a>
+
+    <script>
+        // Detectar si el usuario está en un dispositivo móvil
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const qrElement = document.getElementById("qr");
+            const downloadButton = document.getElementById("download-button");
+
+            if (isMobile()) {
+                downloadButton.style.display = "inline-block";
+            } else {
+                qrElement.style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
